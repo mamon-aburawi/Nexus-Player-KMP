@@ -42,12 +42,11 @@ import player.utils.hybridClick
 import io.github.mamon.nexus.resources.Res
 import io.github.mamon.nexus.resources.ic_backword
 import io.github.mamon.nexus.resources.ic_forword
-import io.github.kdroidfilter.composemediaplayer.VideoMetadata
-
-
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import player.module.NexusVideoMetaData
+import player.module.toNexusMetaData
 import player.utils.Platform
 import player.utils.getPlatform
 
@@ -56,7 +55,6 @@ import player.utils.getPlatform
 fun VideoPlayer(
     data: VideoModule,
     currentVideoQualityIndex: Int = 0,
-    playerState: VideoPlayerState = rememberVideoPlayerState(),
     repeatEnabled: Boolean = false,
     currentSpeed: Float = 1.0f,
     skipIntervalSeconds: Int = 5,
@@ -67,7 +65,7 @@ fun VideoPlayer(
     onVideoComplete: () -> Unit = {},
     onExit: () -> Unit = {},
     onSeek: (value: Float) -> Unit = {}, // 0.0 to 1.0
-    onDataLoaded:(VideoMetadata) -> Unit = {},
+    onDataLoaded:(NexusVideoMetaData) -> Unit = {},
     onError:(String) -> Unit = {},
     onProgress: @Composable () -> Unit = { },
     onSettings: @Composable (BoxScope.(onDismiss: () -> Unit) -> Unit)? = null
@@ -78,12 +76,9 @@ fun VideoPlayer(
     var isMenuDisplayed by remember { mutableStateOf(false) }
     var videoTitle by remember {mutableStateOf(data.title)}
     var currentProgress by remember { mutableFloatStateOf(0f) }
+    val playerState = rememberVideoPlayerState()
 
     val videoUrl = data.quality[currentVideoQualityIndex].url
-
-    val isMetadataLoaded = playerState.hasMedia &&
-            !playerState.isLoading &&
-            (playerState.metadata.duration ?: 0L) > 0L
 
     val errorMessage by remember(playerState.error) {
         derivedStateOf {
@@ -123,7 +118,7 @@ fun VideoPlayer(
             if (data.title.isEmpty()){
                 videoTitle = metaData.title ?: data.title
             }
-            onDataLoaded(metaData)
+            onDataLoaded(metaData.toNexusMetaData())
         }
     }
 

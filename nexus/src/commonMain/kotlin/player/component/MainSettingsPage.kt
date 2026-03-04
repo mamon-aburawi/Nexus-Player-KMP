@@ -36,6 +36,7 @@ import io.github.mamon.nexus.resources.ic_settings
 import io.github.mamon.nexus.resources.ic_speed
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import player.module.NexusVideoMetaData
 
 @Composable
 internal fun MainSettingsPage(
@@ -149,7 +150,7 @@ private fun ConsolePlayerMenuPreview() {
             onPlaybackSpeed = { },
             playbackSpeedOption = emptyList(),
             currentSpeed = currentSpeed,
-            videoMeta = VideoMetadata(
+            videoMeta = NexusVideoMetaData(
                 title = "Video 1",
                 duration = 654257L
             )

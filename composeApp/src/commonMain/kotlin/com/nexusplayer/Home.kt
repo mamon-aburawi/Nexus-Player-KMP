@@ -3,11 +3,9 @@ package com.nexusplayer
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import io.github.kdroidfilter.composemediaplayer.VideoMetadata
-import io.github.kdroidfilter.composemediaplayer.rememberVideoPlayerState
-
 import player.VideoPlayer
 import player.component.PlayerMenu
+import player.module.NexusVideoMetaData
 import player.module.VideoModule
 import player.module.VideoQuality
 
@@ -28,14 +26,14 @@ fun HomeContent(){
     var repeatEnabled by remember { mutableStateOf(false) }
 
     var currentVideoSpeed by remember { mutableStateOf(1.0f) }
-    var videoMetaData by remember { mutableStateOf<VideoMetadata?>(null) }
-    val playerState = rememberVideoPlayerState()
+    var videoMetaData by remember { mutableStateOf<NexusVideoMetaData?>(null) }
+
+
 
 
     VideoPlayer(
         data = videoData,
         currentVideoQualityIndex = currentVideoQualityIndex,
-        playerState = playerState,
         repeatEnabled = repeatEnabled,
         currentSpeed = currentVideoSpeed,
         onProgress = {

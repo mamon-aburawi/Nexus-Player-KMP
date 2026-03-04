@@ -24,19 +24,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.github.kdroidfilter.composemediaplayer.VideoMetadata
+
 
 import player.utils.formatTime
 import player.utils.hybridClick
 import io.github.mamon.nexus.resources.Res
 import io.github.mamon.nexus.resources.ic_arrow_back
 import org.jetbrains.compose.resources.painterResource
+import player.module.NexusVideoMetaData
 import kotlin.math.roundToInt
 
 @Composable
 internal fun VideoInfoPage(
     modifier: Modifier = Modifier,
-    videoMeta: VideoMetadata, // Assuming VideoMetadata is your data class
+    videoMeta: NexusVideoMetaData, // Assuming VideoMetadata is your data class
     contentColor: Color = Color.White,
     onBack: () -> Unit
 ) {
@@ -158,7 +159,7 @@ private fun VideoInfoPagePreview() {
     ) {
         // We pass a dummy lambda for onBack
         VideoInfoPage(
-            videoMeta = VideoMetadata(
+            videoMeta = NexusVideoMetaData(
                 title = mockMetadata.title,
                 duration = mockMetadata.duration,
                 height = mockMetadata.height,

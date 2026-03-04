@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import io.github.kdroidfilter.composemediaplayer.VideoMetadata
+import player.module.NexusVideoMetaData
 import player.utils.Platform
 import player.utils.getPlatform
 import player.module.VideoQuality
@@ -17,7 +18,7 @@ fun PlayerMenu(
     modifier: Modifier = Modifier,
     background: Color = Color.Black.copy(alpha = 0.85f),
     contentColor: Color = Color.White,
-    videoMetadata: VideoMetadata? = null,
+    videoMetadata: NexusVideoMetaData? = null,
     repeatEnabled: Boolean = false,
     playbackSpeedOption: List<Float> = playbackSpeedOptions,
     onDismiss: () -> Unit,
@@ -80,7 +81,7 @@ private fun ConsolePlayerMenuPreview() {
         onPlaybackSpeed = {},
         playbackSpeedOption = emptyList(),
         currentSpeed = 1.0f,
-        videoMeta = VideoMetadata()
+        videoMeta = NexusVideoMetaData()
     )
 }
 
@@ -99,6 +100,6 @@ private fun MobilePlayerMenuPreview() {
         onPlaybackSpeed = {},
         playbackSpeedOption = emptyList(),
         currentSpeed = 1.0f,
-        videoMeta = VideoMetadata()
+        videoMeta = NexusVideoMetaData()
     )
 }

@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import io.github.mamon.nexus.resources.Res
 import io.github.mamon.nexus.resources.ic_full_size
 import io.github.mamon.nexus.resources.ic_minimize
+
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 

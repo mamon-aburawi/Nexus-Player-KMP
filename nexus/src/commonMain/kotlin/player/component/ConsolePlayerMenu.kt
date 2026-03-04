@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.github.kdroidfilter.composemediaplayer.VideoMetadata
+import player.module.NexusVideoMetaData
 import player.module.VideoQuality
 import player.utils.SettingsMenuPage
 import player.utils.dommyQualityData
@@ -36,7 +37,7 @@ internal fun ConsolePlayerMenu(
     background: Color = Color.Black.copy(alpha = 0.85f),
     contentColor: Color = Color.White,
     videoLoopEnabled: Boolean,
-    videoMeta: VideoMetadata?,
+    videoMeta: NexusVideoMetaData?,
     onRepeatToggle: (Boolean) -> Unit,
     onDismiss: () -> Unit,
     qualities: List<VideoQuality>,
@@ -145,7 +146,7 @@ private fun ConsolePlayerMenuPreview() {
         onPlaybackSpeed = {},
         playbackSpeedOption = emptyList(),
         currentSpeed = 1.0f,
-        videoMeta = VideoMetadata(),
+        videoMeta = NexusVideoMetaData(),
     )
 }
 

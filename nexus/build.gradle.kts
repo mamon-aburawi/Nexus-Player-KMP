@@ -83,7 +83,7 @@ kotlin {
 
 
             // for media player
-            api(libs.compose.mediaPlayer)
+            implementation(libs.compose.mediaPlayer)
 
 
         }
