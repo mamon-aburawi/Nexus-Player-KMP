@@ -1,11 +1,8 @@
 package com.nexusplayer
 
-import HomePlayer
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import io.github.kdroidfilter.composemediaplayer.VideoMetadata
 import io.github.kdroidfilter.composemediaplayer.rememberVideoPlayerState
 
@@ -13,6 +10,7 @@ import player.VideoPlayer
 import player.component.PlayerMenu
 import player.module.VideoModule
 import player.module.VideoQuality
+
 
 @Composable
 fun Home(){

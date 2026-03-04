@@ -17,10 +17,9 @@ plugins {
 }
 
 
-
 compose.resources {
     generateResClass = always
-    publicResClass = true
+    publicResClass = false // Set to False for library-only access.
     packageOfResClass = "io.github.mamon.nexus.resources"
 }
 
@@ -114,7 +113,6 @@ kotlin {
             implementation(libs.kotlinx.browser)
             implementation(libs.compose.ui)
 
-
         }
 
     }
@@ -125,7 +123,7 @@ kotlin {
 
 
 group = "io.github.mamon-aburawi" // this group name in maven central repository
-version = "1.0.0" // version of library
+version = "1.0.1" // version of library
 
 mavenPublishing {
 
@@ -146,7 +144,7 @@ mavenPublishing {
 
     pom {
         name = "Nexus Player KMP"
-        description = "This library for Video Player support all Webwasm, Desktop, Android, Ios"
+        description = "A high-performance, Kotlin Multiplatform (KMP) video player library designed for Compose Multiplatform. Providing a seamless media experience across Android, iOS, Desktop (JVM), and Web (Wasm), this library simplifies cross-platform video integration with a unified API."
         inceptionYear = "2026"
         url = "https://github.com/mamon-aburawi/Nexus-Player-KMP"
         licenses {
